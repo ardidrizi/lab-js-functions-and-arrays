@@ -1,12 +1,8 @@
 // Iteration 1 | Find the Maximum
 function maxOfTwoNumbers(num1, num2) {
-  // Check if both num1 and num2 are numbers. If not, return "Invalid input"
-  // The condition (num1 && num2) checks if both values exist, and typeof checks their type.
-  if (typeof (num1 && num2) !== "number") return "Invalid input";
-
-  // Use Math.max() to find the larger of the two numbers and store it in maxNumber
-  let maxNumber = Math.max(num1, num2);
-  return maxNumber;
+  if (typeof num1 !== "number" || typeof num2 !== "number")
+    return "Invalid input";
+  return Math.max(num1, num2);
 }
 
 // Iteration 2 | Find the Longest Word
@@ -46,18 +42,7 @@ function sumNumbers(array) {
   if (array.length === 0) {
     return 0;
   }
-
-  for (let i = 0; i < array.length; i++) {
-    let sum = 0;
-    if (array.length === 0) {
-      return 0;
-    } else {
-      sum = array.reduce((acc, currentValue) => {
-        return acc + currentValue;
-      });
-    }
-    return sum;
-  }
+  return array.reduce((acc, currentValue) => acc + currentValue, 0);
 }
 
 // Iteration 4 | Numbers Average
@@ -85,18 +70,16 @@ const words2 = [
 ];
 
 function doesWordExist(array, word) {
-  //   console.log(array, word);
   if (array.length === 0) {
     return null;
   }
 
-  for (let i = 0; i < word.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (array[i] === word) {
       return true;
     }
   }
   return false;
-  //   return word.includes(array);
 }
 
 const test = doesWordExist(words2, "matter");
